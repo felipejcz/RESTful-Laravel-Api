@@ -1,5 +1,7 @@
 <?php
 
+use App\Category;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -11,6 +13,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $category = factory(Category::class, 10)->create([
+            'owner' => $this->getUserId(),
+        ]);
+    }
+
+    private function getUserId() {
+        $user = User::inRandomOrder()->first();
+        return $user->id;
     }
 }

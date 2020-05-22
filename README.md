@@ -1,5 +1,24 @@
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
+[![Used Version](http://img.shields.io/packagist/v/tymon/jwt-auth.svg?style=flat-square)](https://packagist.org/packages/tymon/jwt-auth)
+
 # RESTful-Laravel-Api
-This project is a restful application using laravel and mysql database
+This project is a restful application using laravel and mysql database.
+
+### Project contains:
+- [X] Use Json Web Token.
+- [X] Use Mysql database.
+- [X] Create and use Migrations.
+- [X] Create and use Factories.
+- [X] Create and use Seeders.
+- [X] Create CRUD for(Category, Product).
+- [X] Create routes for(Category, Product).
 
 # Observations
 

@@ -14,7 +14,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $category = factory(Category::class, 10)->create([
-            'owner' => $this->getUserId(),
+            'user_id' => $this->getUserId(),
         ]);
     }
 

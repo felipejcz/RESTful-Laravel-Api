@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json(Category::all()->load(['owner']));
+        return response()->json(Category::all()->load(['user','products']));
     }
 
     /**
@@ -26,7 +26,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+            $data = $request->all();
+            $category = Category::create($data);
+            return response()->json($category);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+        
     }
 
     /**
@@ -37,7 +45,12 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $category = Category::findOrFail($id);
+            return response()->json($category->load(['user','products']));
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -49,7 +62,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $data = $request->all();
+            $category = Category::findOrFail($id);
+            $category->update($data);
+            return response()->json($category);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -60,6 +80,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $category = Category::findOrFail($id);
+            $category->delete();
+            return response()->json($category);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 }

@@ -15,8 +15,8 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $products = factory(Product::class, 30)->create([
-            'category' => $this->getCategoryId(),
-            'owner' => $this->getUserId(),
+            'category_id' => $this->getCategoryId(),
+            'user_id' => $this->getUserId(),
         ]);
     }
 

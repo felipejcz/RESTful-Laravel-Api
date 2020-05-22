@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Product::all()->load(['user','category']));
     }
 
     /**
@@ -25,7 +26,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $data = $request->all();
+            $product = Product::create($data);
+            return response()->json($product);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -36,7 +43,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $product = Product::findOrFail($id);
+            return response()->json($product->load(['user','category']));
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -48,7 +60,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $data = $request->all();
+            $product = Product::findOrFail($id);
+            $product->update($data);
+            return response()->json($product);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**
@@ -59,6 +78,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $product = Product::findOrFail($id);
+            $product->delete();
+            return response()->json($product);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
     }
 }

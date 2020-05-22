@@ -18,10 +18,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->float('price',8,2);
-            $table->integer('category')->unsigned();
-            $table->foreign('category')->references('id')->on('categories');
-            $table->integer('owner')->unsigned();
-            $table->foreign('owner')->references('id')->on('users');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

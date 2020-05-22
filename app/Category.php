@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = [
+        'title','description','user_id'
+    ];
 
     public function products(){
-        return $this->belongsToMany(Product::class,'id');
+        return $this->hasMany('App\Product');
     }
 
-    public function owner(){
-        return $this->belongsTo(User::class,'id');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

@@ -5,8 +5,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="https://packagist.org/packages/tymon/jwt-auth"><img src="http://img.shields.io/packagist/v/tymon/jwt-auth.svg?style=flat-square" alt="Used JWT Version"></a>
 </p>
-[![Used Version](http://img.shields.io/packagist/v/tymon/jwt-auth.svg?style=flat-square)](https://packagist.org/packages/tymon/jwt-auth)
 
 # RESTful-Laravel-Api
 This project is a restful application using laravel and mysql database.

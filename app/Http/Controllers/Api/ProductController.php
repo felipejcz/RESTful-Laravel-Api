@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(Product::all()->load(['user','category']));
+        return response()->json(Product::all()->load(['user','category']),200);
     }
 
     /**
@@ -29,9 +29,9 @@ class ProductController extends Controller
         try {
             $data = $request->all();
             $product = Product::create($data);
-            return response()->json($product);
+            return response()->json($product,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 
@@ -45,9 +45,9 @@ class ProductController extends Controller
     {
         try {
             $product = Product::findOrFail($id);
-            return response()->json($product->load(['user','category']));
+            return response()->json($product->load(['user','category']),200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 
@@ -64,9 +64,9 @@ class ProductController extends Controller
             $data = $request->all();
             $product = Product::findOrFail($id);
             $product->update($data);
-            return response()->json($product);
+            return response()->json($product,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 
@@ -81,9 +81,9 @@ class ProductController extends Controller
         try {
             $product = Product::findOrFail($id);
             $product->delete();
-            return response()->json($product);
+            return response()->json($product,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 }

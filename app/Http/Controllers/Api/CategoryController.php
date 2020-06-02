@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json(Category::all()->load(['user','products']));
+        return response()->json(Category::all()->load(['user','products']),200);
     }
 
     /**
@@ -30,9 +30,9 @@ class CategoryController extends Controller
         try {
             $data = $request->all();
             $category = Category::create($data);
-            return response()->json($category);
+            return response()->json($category,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
         
     }
@@ -47,9 +47,9 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::findOrFail($id);
-            return response()->json($category->load(['user','products']));
+            return response()->json($category->load(['user','products']),200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 
@@ -66,9 +66,9 @@ class CategoryController extends Controller
             $data = $request->all();
             $category = Category::findOrFail($id);
             $category->update($data);
-            return response()->json($category);
+            return response()->json($category,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 
@@ -83,9 +83,9 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->delete();
-            return response()->json($category);
+            return response()->json($category,200);
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return response()->json($th->getMessage(),500);
         }
     }
 }
